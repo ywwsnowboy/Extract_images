@@ -24,8 +24,8 @@ def download_images(path):
             f.write(content)
 
 
-def batch_download_images(root):
-    for subdir, _, files in os.walk(root):
+def batch_download_images(rootpath):
+    for subdir, _, files in os.walk(rootpath):
         for file in files:
             if file.endswith('.md'):
                 path = os.path.join(subdir, file)
@@ -37,9 +37,16 @@ def batch_download_images(root):
 old_dir = './old'
 new_dir = './new'
 
-
-if not os.path.exists(new_dir):
+# 检查文件夹是否存在
+if os.path.exists(new_dir):
+    # 删除文件夹及其内容
+    shutil.rmtree(new_dir)
     os.makedirs(new_dir)
+else:
+    os.makedirs(new_dir)
+
+# if not os.path.exists(new_dir):
+#     os.makedirs(new_dir)
 
 shutil.copytree(old_dir, new_dir, dirs_exist_ok=True)
 
