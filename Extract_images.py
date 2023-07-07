@@ -45,9 +45,6 @@ if os.path.exists(new_dir):
 else:
     os.makedirs(new_dir)
 
-# if not os.path.exists(new_dir):
-#     os.makedirs(new_dir)
-
 shutil.copytree(old_dir, new_dir, dirs_exist_ok=True)
 
 batch_download_images(new_dir)
