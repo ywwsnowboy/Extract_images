@@ -53,7 +53,7 @@ batch_download_images(new_dir)
 file_path = os.path.join(new_dir, delete_file_in_new)
 if os.path.exists(file_path):
     os.remove(file_path)
-    print("文件删除成功！")
+print("all images was extract successfully in new/assets/ directory！")
 
 
 
