@@ -36,6 +36,7 @@ def batch_download_images(rootpath):
 # 定义旧文件夹和新文件夹
 old_dir = './old'
 new_dir = './new'
+delete_file_in_new = 'README.md'
 
 # 检查文件夹是否存在
 if os.path.exists(new_dir):
@@ -46,5 +47,15 @@ else:
     os.makedirs(new_dir)
 
 shutil.copytree(old_dir, new_dir, dirs_exist_ok=True)
-
 batch_download_images(new_dir)
+
+# 删除不需要转换的README.md文件
+file_path = os.path.join(new_dir, delete_file_in_new)
+if os.path.exists(file_path):
+    os.remove(file_path)
+    print("文件删除成功！")
+
+
+
+
+
